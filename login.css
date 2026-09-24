@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.auth-modal {
+  position: fixed;
+  width: 420px;
+  height: 440px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(255, 25, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 25, 0, 0.15);
+  color: #222;
+  inset: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition:
+    height 0.2s ease,
+    transform 0.5s ease;
+}
+
+.auth-modal.slide {
+  height: 520px;
+}
+
+.auth-modal .form-box {
+  width: 100%;
+  padding: 45px 40px 35px;
+}
+
+.auth-modal .form-box.login,
+.auth-modal.slide .form-box.register {
+  transform: translateX(0);
+  transition: transform 0.18s ease;
+}
+
+.auth-modal.slide .form-box.login {
+  transform: translateX(-400px);
+  transition: none;
+}
+
+.auth-modal .form-box.register {
+  position: absolute;
+  transform: translateX(400px);
+}
+
+.form-box h2 {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 22px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border: 2px solid rgba(255, 25, 0, 0.25);
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #222;
+  padding: 0 50px 0 20px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input-box input:focus {
+  border-color: #fa1900;
+  box-shadow: 0 0 8px rgba(255, 25, 0, 0.12);
+}
+
+.input-box input::placeholder {
+  color: #888;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fa1900;
+  pointer-events: none;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  margin-top: 8px;
+  background: #fa1900;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 0 0 10px rgba(255, 25, 0, 0.2);
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #d91600;
+  box-shadow: 0 0 15px rgba(255, 25, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.form-box p {
+  font-size: 14.5px;
+  text-align: center;
+  margin: 22px 0 10px;
+  line-height: 1.5;
+}
+
+.form-box p a {
+  color: #fa1900;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-box p a:hover {
+  text-decoration: underline;
+}
+
+.auth-modal .close-btn-modal:hover {
+  color: #fa1900;
+}
+
+.alert-box {
+  position: fixed;
+  inset: 0;
+  top: 35px;
+  margin: 0 auto;
+  width: 350px;
+  height: 70px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 0 15px;
+  z-index: 100;
+  overflow: hidden;
+  transform: translateY(calc(-100% - 35px));
+  transition: 0.5s ease;
+}
+
+.alert-box.show {
+  transform: translateY(0);
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #222;
+  font-weight: 500;
+}
+
+.alert::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #0abf30;
+  animation: progress 6s linear forwards;
+}
+
+.alert.error::after {
+  background: #f00;
+}
+
+@keyframes progress {
+  100% {
+    width: 0;
+  }
+}
+
+.alert i {
+  font-size: 35px;
+  color: #0abf30;
+  margin-right: 8px;
+}
+
+.alert.error i {
+  color: #f00;
+}
